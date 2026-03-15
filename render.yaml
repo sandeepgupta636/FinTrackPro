@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: fintrackpro-backend
+    runtime: node
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        value: your_jwt_secret_key
+      - key: JWT_REFRESH_SECRET
+        value: your_refresh_secret_key
+      - key: PORT
+        value: 10000
+
+  - type: web
+    name: fintrackpro-frontend
+    runtime: static
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: frontend/build
+    pullRequestPreviewsEnabled: true

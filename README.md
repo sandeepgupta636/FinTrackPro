@@ -198,6 +198,95 @@ REACT_APP_NEWS_API_KEY=your_news_api_key
 - `PUT /api/savings/:id` - Update savings goal
 - `DELETE /api/savings/:id` - Delete savings goal
 
+## 🚀 Deployment
+
+### Option 1: Vercel (Recommended for Frontend + Backend)
+
+1. **Connect your GitHub repository to Vercel**
+2. **Deploy the backend:**
+   - Vercel will automatically detect the `vercel.json` configuration
+   - Set environment variables in Vercel dashboard
+   - Backend will be deployed to a serverless function
+
+3. **Deploy the frontend:**
+   - Create a separate Vercel project for the frontend
+   - Set `REACT_APP_BACKEND_URL` to your backend URL
+
+### Option 2: Render (Full-Stack)
+
+1. **Connect your GitHub repository to Render**
+2. **Use the `render.yaml` configuration file**
+3. **Deploy both services:**
+   - Backend service with Node.js runtime
+   - Frontend service with static site runtime
+4. **Set environment variables in Render dashboard**
+
+### Option 3: Railway
+
+1. **Connect your GitHub repository to Railway**
+2. **Railway will auto-detect your project structure**
+3. **Set environment variables**
+4. **Deploy both frontend and backend from single repository**
+
+### Option 4: Heroku
+
+1. **Create two Heroku apps:**
+   - One for backend (`fintrackpro-backend`)
+   - One for frontend (`fintrackpro-frontend`)
+
+2. **Deploy backend:**
+   ```bash
+   heroku create fintrackpro-backend
+   heroku buildpacks:add heroku/nodejs
+   git push heroku main
+   ```
+
+3. **Deploy frontend:**
+   ```bash
+   heroku create fintrackpro-frontend
+   heroku buildpacks:add heroku/nodejs
+   heroku buildpacks:add heroku/static
+   git push heroku main
+   ```
+
+### Environment Variables for Production
+
+```env
+NODE_ENV=production
+JWT_SECRET=your_secure_jwt_secret
+JWT_REFRESH_SECRET=your_secure_refresh_secret
+DATABASE_URL=your_database_url
+STOCK_API_KEY=your_stock_api_key
+EMAIL_USER=your_email@gmail.com
+EMAIL_PASS=your_email_app_password
+```
+
+## 📱 Mobile App
+
+Future plans include a React Native mobile application with the same features.
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 👥 Authors
+
+- **Your Name** - *Initial work* - [Your GitHub](https://github.com/yourusername)
+
+## 🙏 Acknowledgments
+
+- React.js community
+- TailwindCSS team
+- All contributors and supporters
+
 ### Investments
 - `GET /api/investments` - Get user investments
 - `POST /api/investments` - Add new investment
