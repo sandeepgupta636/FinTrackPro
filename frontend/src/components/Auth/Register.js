@@ -15,8 +15,8 @@ const Register = () => {
     e.preventDefault();
     try {
       const response = await axios.post('/api/auth/register', formData);
-      localStorage.setItem('token', response.data.token);
-      navigate('/');
+      alert('Registration successfully done. Welcome to FinTrackPro!');
+      navigate('/login');
     } catch (err) {
       setError('Registration failed');
     }
