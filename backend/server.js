@@ -12,6 +12,10 @@ const path = require('path');
 // Load environment variables
 dotenv.config();
 
+// Set default secrets for demo if not provided
+if (!process.env.JWT_SECRET) process.env.JWT_SECRET = 'demo_jwt_secret_for_fintrackpro';
+if (!process.env.JWT_REFRESH_SECRET) process.env.JWT_REFRESH_SECRET = 'demo_refresh_secret_for_fintrackpro';
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 
